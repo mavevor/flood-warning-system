@@ -12,8 +12,6 @@ def test_stations_by_distance():
     for i in range(len(a)-1):
         assert a[i][1] <= a[i+1][1]                                             # a is listed in numerical order
 
-test_stations_by_distance()
-
 def test_stations_within_radius():
     stations = build_station_list()
     centre = (0,0)
@@ -21,4 +19,3 @@ def test_stations_within_radius():
     a = stations_within_radius(stations, centre, r)
     assert len(a) == len(stations)//2                                           # number of stations within r should be the same as the midpoint
     
-test_stations_within_radius()
