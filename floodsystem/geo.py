@@ -76,6 +76,9 @@ def rivers_by_station_number(stations, N):
         rivers.append((name, len(stations_on_river)))
 
     rivers = sorted(rivers, key=lambda x: x[1], reverse=True)
+
+    if len(rivers) < N:
+        N = len(rivers)
     
     output = rivers[:N]
     boundary_no = output[N-1][1]

@@ -74,7 +74,7 @@ def test_rivers_by_station_number():
         assert len(popular_rivers) == N
     else:
         last_river_no = popular_rivers[N-1][1]
-        for river in enumerate(popular_rivers[N:]):
+        for river in popular_rivers[N:]:
             assert river[1] == last_river_no
 
 
