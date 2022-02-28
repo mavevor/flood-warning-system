@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\.github",
+    "\\floodsystem"
   ],
-  "SelectedNode": "\\C:\\Users\\Makafui Avevor\\Source\\Repos\\mavevor\\flood-warning-system",
+  "SelectedNode": "\\floodsystem\\geo.py",
   "PreviewInSolutionExplorer": false
 }

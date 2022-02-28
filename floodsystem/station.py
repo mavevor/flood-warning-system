@@ -39,7 +39,7 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
 
-    #TASK F
+    #TASK 1F
     def typical_range_consistent(self):
         """Check if hi/lo data is consistent and/ or available."""
         if self.typical_range == None:
@@ -49,16 +49,22 @@ class MonitoringStation:
                 return False
             else:
                 return True
+    #TASK 2B
+    def relative_water_level(self):
+        """ returns the latest water level as a fraction of the typical range """
+        if (self.typical_range_consistent() and self.latest_level):
+            return (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+        else: return None
 
-
-#TASK F
+#TASK 1F
 def inconsistent_typical_range_stations(stations):
     """Given list of MonitoringStation objects; returns list of MonitoringStations
     with inconsistent hi/lo ranges"""
-    
+
     output = []
     for station in stations:
         if not station.typical_range_consistent():
             output.append(station)
             
     return output
+
