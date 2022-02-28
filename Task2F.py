@@ -1,12 +1,14 @@
-from floodsystem.datafetcher import build_station_list, fetch_measure_levels
+from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.plot import plot_water_level_with_fit
 from floodsystem.flood import stations_highest_rel_level
+from floodsystem.stationdata import update_water_levels, build_station_list
 import datetime
 
 
 def run():
 
     all_stations = build_station_list()
+    update_water_levels(all_stations)
 
     N = 5
     dt = 2
