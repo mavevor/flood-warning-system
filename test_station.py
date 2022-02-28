@@ -38,13 +38,13 @@ def test_typical_range_consistent_method():
     river = "River X"
     town = "My Town"
     s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
-    assert s.typical_range_consistent() == True
+    assert s.typical_range_consistent()
     
     s.typical_range = None
-    assert s.typical_range_consistent() == False
+    assert not s.typical_range_consistent()
 
     s.typical_range = (76.004, -12.3)
-    assert s.typical_range_consistent() == False
+    assert not s.typical_range_consistent()
 
 
 def test_inconsistent_typical_range_stations():
