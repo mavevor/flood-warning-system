@@ -13,10 +13,10 @@ def run():
             if risk:
                 stations_risk[risk - 1].append(station)
     
-    print("\nLOW RISK\n", [station.name for station in stations_risk[0]], "\n")
-    print("MODERATE RISK\n", [station.name for station in stations_risk[1]], "\n")
-    print("HIGH RISK\n", [station.name for station in stations_risk[2]], "\n")
-    print("SEVERE RISK\n", [station.name for station in stations_risk[3]], "\n")
+    print("\nLOW RISK\n", set([station.town for station in stations_risk[0]]), "\n")
+    print("MODERATE RISK\n", set([station.town for station in stations_risk[1]]), "\n")
+    print("HIGH RISK\n", set([station.town for station in stations_risk[2]]), "\n")
+    print("SEVERE RISK\n", set([station.town for station in stations_risk[3]]), "\n")
 
 
 if __name__ == "__main__":
