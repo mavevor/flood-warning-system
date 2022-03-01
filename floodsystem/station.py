@@ -88,4 +88,11 @@ def inconsistent_typical_range_stations(stations):
             output.append(station)
             
     return output
+def risk_level_by_station(stations):
+    output = []
+    for station in stations:
+        risk = station.risk_by_water_level()
+        output.append((station, risk))
+    return output
+        
 
