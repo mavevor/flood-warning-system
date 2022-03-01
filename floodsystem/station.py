@@ -57,10 +57,11 @@ class MonitoringStation:
         else: return None
 
     def risk_by_water_level(self):
-        if self.relative_water_level() > 2: return 4                                    # 4 denotes very high level
-        elif self.relative_water_level() > 1: return 3                                  # 3 denotes high level
-        elif self.relative_water_level() > 0: return 2                                  # 2 denotes moderate level
-        else: return 1                                                                  # 1 denotes low level
+        if self.relative_water_level():
+            if self.relative_water_level() > 2: return 4                                    # 4 denotes very high level
+            elif self.relative_water_level() > 1: return 3                                  # 3 denotes high level
+            elif self.relative_water_level() > 0: return 2                                  # 2 denotes moderate level
+            else: return 1                                                                  # 1 denotes low level
 
 #TASK 1F
 def inconsistent_typical_range_stations(stations):
@@ -73,4 +74,11 @@ def inconsistent_typical_range_stations(stations):
             output.append(station)
             
     return output
+def risk_level_by_station(stations):
+    output = []
+    for station in stations:
+        risk = station.risk_by_water_level()
+        output.append((station, risk))
+    return output
+        
 
