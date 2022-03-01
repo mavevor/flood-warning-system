@@ -29,6 +29,9 @@ class MonitoringStation:
 
         self.latest_level = None
 
+        self.current_risk = None
+        self.forecasted_risk = None
+
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
         d += "   id:            {}\n".format(self.station_id)
@@ -56,11 +59,23 @@ class MonitoringStation:
             return (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
         else: return None
 
+    #TASK 2G
     def risk_by_water_level(self):
-        if self.relative_water_level() > 2: return 4                                    # 4 denotes very high level
-        elif self.relative_water_level() > 1: return 3                                  # 3 denotes high level
-        elif self.relative_water_level() > 0: return 2                                  # 2 denotes moderate level
-        else: return 1                                                                  # 1 denotes low level
+        water_level_rel = self.relative_water_level()
+        if water_level_rel:
+            if water_level_rel > 2: return 4                                    # 4 denotes very high level
+            elif water_level_rel > 1: return 3                                  # 3 denotes high level
+            elif water_level_rel > 0: return 2                                  # 2 denotes moderate level
+            else: return 1                                                                  # 1 denotes low level
+        else:
+            return None
+
+    #TASK 2G
+    def relative_water_level_any(self, level):
+        """ returns the latest water level as a fraction of the typical range """
+        if self.typical_range_consistent():
+            return (level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
+        else: return None
 
 #TASK 1F
 def inconsistent_typical_range_stations(stations):
